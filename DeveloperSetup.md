@@ -20,9 +20,9 @@ Have your faviourite IDE set up and have have all the extensions pertaining to P
 
 Here are the steps for setting up VS Code:
 
-a. Download VS Code: [Click here](https://code.visualstudio.com/download)
+1. Download VS Code: [Click here](https://code.visualstudio.com/download)
 
-b. Install the `Python` extension.
+2. Install the `Python` extension.
 
 ## Virtual Environment Setup
 
@@ -59,5 +59,5 @@ python -m pip install --upgrade pip
 6. Download the packages from requirements.txt
 
 ```bash
-pip install -r requirements.txt
+pip install -r <path-to-project>/src/requirements.txt
 ```
