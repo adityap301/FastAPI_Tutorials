@@ -4,8 +4,8 @@ from typing import List
 from fastapi import status
 
 router = APIRouter(
-    prefix="/products", 
-    tags=["products"]
+    prefix="/products_im", 
+    tags=["products_im"]
 )
 
 products = [

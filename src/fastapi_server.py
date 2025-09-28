@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 import uvicorn
-from routers import product_router
+from routers import product_router_im
 
 
 app = FastAPI()
@@ -10,8 +10,8 @@ def read_root():
     return {"message": "Hello World!"}
 
 
-app.include_router(product_router.router)
+app.include_router(product_router_im.router)
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="localhost", port=8000)
+    uvicorn.run(app, host="localhost", port=8000, reload=True)
