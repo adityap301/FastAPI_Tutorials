@@ -2,7 +2,8 @@ from fastapi import APIRouter, HTTPException
 from models.product_model import Product
 from typing import List
 from fastapi import status
-import traceback
+from exceptions.ProductNotFoundException import ProductNotFoundException
+
 
 router = APIRouter(
     prefix="/products_im", 
@@ -20,6 +21,7 @@ products = [
 def get_all_products():
     return products
 
+
 @router.get("/{id}", summary="Product by ID", response_model=Product)
 def get_product_by_id(id: str):
     for product in products:
@@ -27,10 +29,12 @@ def get_product_by_id(id: str):
             return product
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Product not found")
 
+
 @router.post("/", summary="Add a product", response_model=Product, status_code=status.HTTP_201_CREATED)
 def add_product(request: Product):
     products.append(request)
     return request
+
 
 @router.put("/{id}", summary="Update a product", response_model=Product)
 def update_product(id: str, request: Product):
@@ -41,10 +45,16 @@ def update_product(id: str, request: Product):
             return request
     raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Product not found")
 
+
 @router.delete("/{id}", summary="Delete a product", response_model=Product)
 def delete_product(id: str):
-    for idx, product in enumerate(products):
-        if product.id == id:
-            deleted_product = products.pop(idx)
-            return deleted_product
-    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Product not found")
+    try:
+        for idx, product in enumerate(products):
+            if product.id == id:
+                deleted_product = products.pop(idx)
+                return deleted_product
+        raise ProductNotFoundException
+    except ProductNotFoundException as e:
+        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Product not found")
+    except Exception as e:
+        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR, detail="Something went wrong")
