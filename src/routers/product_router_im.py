@@ -47,6 +47,7 @@ def update_product(id: str, request: Product):
     try:
         for idx, product in enumerate(products):
             if product.id == id:
+                request.id = id
                 products[idx] = request
                 return request
     except Exception as e:
