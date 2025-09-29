@@ -2,6 +2,7 @@ from fastapi import APIRouter, HTTPException
 from models.product_model import Product
 from typing import List
 from fastapi import status
+import traceback
 
 router = APIRouter(
     prefix="/products_im", 
@@ -17,49 +18,33 @@ products = [
 
 @router.get("/", summary="Get all products", response_model=List[Product])
 def get_all_products():
-    try:
-        return products
-    except Exception as e:
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR , error_msg=f"Something went wrong")
-    
+    return products
 
 @router.get("/{id}", summary="Product by ID", response_model=Product)
 def get_product_by_id(id: str):
-    try:
-        for product in products:
-            if product.id == id:
-                return product
-    except Exception as e:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND , error_msg="Product not found")
-
+    for product in products:
+        if product.id == id:
+            return product
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Product not found")
 
 @router.post("/", summary="Add a product", response_model=Product, status_code=status.HTTP_201_CREATED)
 def add_product(request: Product):
-    try:
-        products.append(request)
-        return request
-    except Exception as e:
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR , error_msg=f"Something went wrong")
-
+    products.append(request)
+    return request
 
 @router.put("/{id}", summary="Update a product", response_model=Product)
 def update_product(id: str, request: Product):
-    try:
-        for idx, product in enumerate(products):
-            if product.id == id:
-                request.id = id
-                products[idx] = request
-                return request
-    except Exception as e:
-        raise HTTPException(status_code=status.HTTP_500_INTERNAL_SERVER_ERROR , error_msg=f"Something went wrong")
-    
+    for idx, product in enumerate(products):
+        if product.id == id:
+            request.id = id
+            products[idx] = request
+            return request
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Product not found")
 
 @router.delete("/{id}", summary="Delete a product", response_model=Product)
 def delete_product(id: str):
-    try:
-        for idx, product in enumerate(products):
-            if product.id == id:
-                deleted_product = products.pop(idx)
-                return deleted_product
-    except Exception as e:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, error_msg="Product not found")
+    for idx, product in enumerate(products):
+        if product.id == id:
+            deleted_product = products.pop(idx)
+            return deleted_product
+    raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Product not found")
