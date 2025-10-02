@@ -4,13 +4,13 @@
 
 ### 1. Python
 
-1. Download Python (v3.12.10): [Click here](https://www.python.org/downloads/release/python-31210/)
+1. Download Python (v3.12.10): [Click Here](https://www.python.org/downloads/release/python-31210/)
 
 2. Run the setup file. Follow the on-screen instructions and complete the installation process. 
 
 ### 2. Postman (Optional)
 
-1. Download Postman: [Click here](https://www.postman.com/downloads/)
+1. Download Postman: [Click Here](https://www.postman.com/downloads/)
 
 2. Run the setup file and complete the installation process.
 
@@ -20,7 +20,7 @@ Have your faviourite IDE set up and have have all the extensions pertaining to P
 
 Here are the steps for setting up VS Code:
 
-1. Download VS Code: [Click here](https://code.visualstudio.com/download)
+1. Download VS Code: [Click Here](https://code.visualstudio.com/download)
 
 2. Install the `Python` extension.
 
