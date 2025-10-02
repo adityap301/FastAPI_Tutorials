@@ -24,6 +24,8 @@ Here are the steps for setting up VS Code:
 
 2. Install the `Python` extension.
 
+3. Intall the `SQLite` extension
+
 ## Virtual Environment Setup
 
 1. cd into the project folder where the venv is to be set up.
@@ -56,7 +58,7 @@ pip list
 python -m pip install --upgrade pip
 ```
 
-6. Download the packages from requirements.txt
+6. Download the dependencies from requirements.txt
 
 ```bash
 pip install -r <path-to-project>/src/requirements.txt
