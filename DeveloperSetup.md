@@ -24,7 +24,7 @@ Here are the steps for setting up VS Code:
 
 2. Install the `Python` extension.
 
-3. Intall the `SQLite` extension
+3. Intall the `SQLite` by alexcvzz extension.
 
 ## Virtual Environment Setup
 

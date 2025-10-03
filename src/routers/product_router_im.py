@@ -10,14 +10,14 @@ import traceback
 LOGGER = Logger(__name__).get_logger()
 
 router = APIRouter(
-    prefix="/products_im", 
+    prefix="/api/products_im", 
     tags=["products_im"]
 )
 
 products = [
-    Product(id="1", name="Product 1", description="Description 1", price=10.0, quantity=100),
-    Product(id="2", name="Product 2", description="Description 2", price=20.0, quantity=200),
-    Product(id="3", name="Product 3", description="Description 3", price=30.0, quantity=300),
+    Product(id="1", name="iPhone 17", description="Phone by Apple", price=10.0, quantity=100),
+    Product(id="2", name="Samsung Galaxy S25", description="Phone by Samsung", price=20.0, quantity=200),
+    Product(id="3", name="Asus TUF", description="Laptop by Asus", price=30.0, quantity=300),
 ]
 
 

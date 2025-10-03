@@ -9,14 +9,17 @@ FastAPI_Tutorials/
 ├── Course_Materials/          # Presentation decks and demo guides
 ├── src/                       # Source code
 │   ├── database/              # Database connection and models
+│   │   ├── db_models          # Database models
 │   │   ├── db_connection.py   # SQLAlchemy database connection setup
 │   │   ├── ecommerce.sqlite   # SQLite Database 
 │   │   └── __init__.py
 │   ├── exceptions/            # Custom exception classes
-│   ├── models/                # Pydantic and Database models
+│   ├── models/                # Pydantic data models
 │   ├── routers/               # API routers
 │   ├── utils/                 # Utility modules (e.g., logger)
-│   ├── fastapi_server.py      # Main FastAPI application
+│   ├── fastapi_server_im.py   # Main FastAPI application - CRUD using in-memory data
+│   ├── fastapi_server_db.py   # Main FastAPI application - CRUD using db data
+│   ├── hello_world.py         # Main FastAPI application - Introduction API
 │   └── requirements.txt       # Python dependencies
 ```
 
@@ -41,7 +44,15 @@ Refer to the doumentation [here](./DeveloperSetup.md).
 
 2. Start the FastAPI server:
    ```bash
-   uvicorn fastapi_server:app --reload
+   uvicorn hello_world:app --reload
+   ```
+
+   ```bash
+   uvicorn fastapi_server_im:app --reload
+   ```
+
+   ```bash
+   uvicorn fastapi_server_db:app --reload
    ```
 
 3. Open your browser and navigate to:
