@@ -1,4 +1,4 @@
 -- SQLite
 .schema
 
-SELECT * FROM Products;
+SELECT * FROM products;
