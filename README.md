@@ -42,7 +42,12 @@ Refer to the doumentation [here](./DeveloperSetup.md).
    cd src
    ```
 
-2. Start the FastAPI server:
+2. Set PYTHONPATH:
+   ```bash
+   $env:PYTHONPATH = $pwd
+   ```
+
+3. Start the FastAPI server:
    ```bash
    uvicorn hello_world:app --reload
    ```
