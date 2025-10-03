@@ -15,9 +15,9 @@ router = APIRouter(
 )
 
 products = [
-    Product(id="1", name="iPhone 17", description="Phone by Apple", price=10.0, quantity=100),
-    Product(id="2", name="Samsung Galaxy S25", description="Phone by Samsung", price=20.0, quantity=200),
-    Product(id="3", name="Asus TUF", description="Laptop by Asus", price=30.0, quantity=300),
+    Product(id="1", name="iPhone 17", description="Phone by Apple", price=799.0, quantity=100),
+    Product(id="2", name="Samsung Galaxy S25", description="Phone by Samsung", price=829.0, quantity=200),
+    Product(id="3", name="Asus TUF", description="Laptop by Asus", price=649.0, quantity=300),
 ]
 
 

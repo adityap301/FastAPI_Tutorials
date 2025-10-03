@@ -70,7 +70,7 @@ Refer to the doumentation [here](./DeveloperSetup.md).
 
 ## Database
 - **SQLite** database file: `src/database/ecommerce.sqlite`
-- **Models**: Defined using SQLAlchemy in `src/models/db/product_model.py`.
+- **Models**: Defined using SQLAlchemy in `src/database/db_models/product_model.py`.
 
 ## Logging
 - Logs are managed using a custom logger defined in `src/utils/logger.py`.
